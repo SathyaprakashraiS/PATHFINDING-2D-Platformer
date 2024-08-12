@@ -1,8 +1,14 @@
 import numpy as np
 import random
 import os,time
+from pydub import AudioSegment
+from pydub.playback import play
 global levelend
 levelend=False
+'''
+song =AudioSegment.from_wav("note.wav")
+play(song)
+'''
 def playerpos(height,width):
 	for i in range(height):
 		for j in range(width):
@@ -15,7 +21,7 @@ def dropleft(height,width):
 			if(platform[i][j]=="@"):
 				platform[i][j]==" "
 	#platform[lgpx][lgpy]="@"
-	paltform[lgpx+4][lgpy-4]="@"
+	platform[lgpx+4][lgpy-4]="@"
 	lgpx+=4
 	lgpy-=4
 	alive=True
@@ -28,7 +34,7 @@ def dropright(height,width):
 			if(platform[i][j]=="@"):
 				platform[i][j]==" "
 	#platform[lgpx][lgpy]="@"
-	paltform[lgpx+4][lgpy+4]="@"
+	platform[lgpx+4][lgpy+4]="@"
 	lgpx+=4
 	lgpy+=4
 	alive=True
@@ -465,6 +471,7 @@ def display(height,width):
 	except:
 		pass
 		#time.sleep(1)
+	time.sleep(0.5)
 compartments=height/4
 border(height+3,width+3)
 simple=False
